@@ -1,0 +1,11 @@
+<% if (post.git) { %>
+<%
+    var arg = post.git.split('/');
+    var repo = arg[arg.length-1].replace('.git','');
+    var user = arg[arg.length-2];
+%>
+<span class="github-buttons">
+    <iframe src="https://ghbtns.com/github-btn.html?user=<%=user%>&repo=<%=repo%>&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=<%=user%>&repo=<%=repo%>&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+</span>
+<% } %>
