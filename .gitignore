@@ -42,3 +42,4 @@ node_modules/
 public/
 .deploy*/
 .idea/
+db.json
