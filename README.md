@@ -10,3 +10,4 @@
 1. ``` hexo new post <title> ```.
 2. The new post can be found under ```source/_posts``` and can be edited.
 3. ``` hexo serve ``` to view in local browser.
+
