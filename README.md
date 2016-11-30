@@ -7,7 +7,7 @@
 2. Inside the `static-web-generator` use ``` npm install ```.
 
 ###### Steps to add a new post `HEXO` 
-1. ``` hexo new post <title> ```.
+1. ``` hexo new post <title> ```. or you can create an md file manually in  ```source/_posts``` folder
 2. The new post can be found under ```source/_posts``` and can be edited.
 3. ``` hexo serve ``` to view in local browser.
 
