@@ -99,7 +99,8 @@ The Output of the CodeBuild will be as given below:
 
 The AWS Lambda can be used as a part of our pipeline for updating task and service definition.
 
-1. Update Task Definition
+1. Update Task Definition 
+
 The sample code below can be used to update the service definition.
 ```
 'use strict';
@@ -185,7 +186,9 @@ exports.handler = (event, context, callback) => {
 };
 ```
 This lamda function will create a new task definition or a new revision of the existing task definition.
+
 2. Update Service Definition
+
 ```
 'use strict';
 exports.handler = (event, context, callback) => {
