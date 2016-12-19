@@ -275,3 +275,7 @@ exports.handler = (event, context, callback) => {
 };
 
 ```
+
+### AWS CodePipeline
+The components are added to the CodePipeline in the order `Source>CodeBuild>Lambda` .
+[image](/source/images/code-pipeline.png)
