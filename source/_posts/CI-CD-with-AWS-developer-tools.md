@@ -13,7 +13,7 @@ compared to the usual Jenkins automations.
 ### AWS ECS Cluster
 We can use the cloudformation template https://github.com/microservices-today/IaC-ecs to create an ECS cluster.
 ### AWS ECR
-The docker images that are deployed to ECS Cluster is stored in the ECR repository. We need to create a repository for 
+The docker images to be deployed to ECS Cluster are stored in the ECR repository. We need to create a repository for 
 each of the custom application that we are hosting on ECS. You can follow the steps to create a new Repository for `nginx` 
 [Steps](https://ap-southeast-1.console.aws.amazon.com/ecs/home?region=ap-southeast-1#/repositories/create/new).
 ### AWS CodeBuild
