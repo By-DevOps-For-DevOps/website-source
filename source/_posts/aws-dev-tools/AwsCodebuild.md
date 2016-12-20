@@ -23,7 +23,8 @@ artifacts:
     - service-definition.json
     - master.commit
 ```
-Replace the `https://github.com/***********.git` from the buildspec.yml with current github URL
+Replace the `https://github.com/***********.git` from the buildspec.yml with current github URL.
+
 2. Add the service-definition.json and task-definition.json for ECR.
 #### `task-definition.json`
 ```
