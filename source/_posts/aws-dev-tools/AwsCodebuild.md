@@ -7,7 +7,7 @@ version: 0.1
 phases:
   build:
     commands:
-      - export GITHUB_TOKEN=${GITHUB_TOKEN} && git ls-remote https://github.com/microservices-today/nginx-docker.git HEAD | awk '{ print $1;}' > master.commit
+      - export GITHUB_TOKEN=${GITHUB_TOKEN} && git ls-remote https://github.com/***********.git HEAD | awk '{ print $1;}' > master.commit
       - docker build -t $ECR_REPO:$(cat ./master.commit) .
       - sed -i "s@DOCKER_URI@${ECR_REPO}:$(cat ./master.commit)@g" task-definition.json
       - sed -i "s@ECS_CLUSTER_NAME@${ECS_CLUSTER_NAME}@g" service-definition.json
@@ -23,3 +23,4 @@ artifacts:
     - service-definition.json
     - master.commit
 ```
+Replace the `https://github.com/***********.git` from the buildspec.yml with current github URL
