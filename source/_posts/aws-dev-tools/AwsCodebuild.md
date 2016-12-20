@@ -7,7 +7,7 @@ version: 0.1
 phases:
   build:
     commands:
-      - export GITHUB_TOKEN=${GITHUB_TOKEN} && git ls-remote https://github.com/***********.git HEAD | awk '{ print $1;}' > master.commit
+      - git ls-remote https://${GITHUB_TOKEN}@github.com/microservices-today/*****.git HEAD | awk '{ print $1;}' > master.commit
       - docker build -t $ECR_REPO:$(cat ./master.commit) .
       - sed -i "s@DOCKER_URI@${ECR_REPO}:$(cat ./master.commit)@g" task-definition.json
       - sed -i "s@ECS_CLUSTER_NAME@${ECS_CLUSTER_NAME}@g" service-definition.json
@@ -28,11 +28,11 @@ Replace the `https://github.com/***********.git` from the buildspec.yml with cur
 #### `task-definition.json`
 ```
 {
-    "family": "nginx-prototype",
+    "family": "sample-app-name",
     "containerDefinitions": [
         {
             "environment": [],
-            "name": "nginx",
+            "name": "sample-app-name",
             "image": "DOCKER_URI",
             "cpu": 10,
             "memory": 500,
@@ -49,13 +49,13 @@ Replace the `https://github.com/***********.git` from the buildspec.yml with cur
 #### `service-definition.json`
 ```
 {
-  "serviceName": "nginx-prototype",
-  "taskDefinition": "nginx-prototype",
+  "serviceName": "sample-app-name",
+  "taskDefinition": "sample-app-name",
   "cluster": "ECS_CLUSTER_NAME",
   "desiredCount":2,
   "loadBalancers": [
      {
-    "containerName": "nginx", 
+    "containerName": "sample-app-name", 
     "containerPort": 80, 
     "targetGroupArn": "TARGET_GROUP_ARN"
    }
@@ -63,3 +63,4 @@ Replace the `https://github.com/***********.git` from the buildspec.yml with cur
   "role": "ECS_SERVICE_ROLE"
 }
 ```
+replace the `sample-app-name` with appropriate name in both `service-definition.json` and `task-definition.json`.
