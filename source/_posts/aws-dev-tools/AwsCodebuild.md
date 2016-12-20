@@ -25,23 +25,6 @@ artifacts:
 ```
 Replace the `https://github.com/***********.git` from the buildspec.yml with current github URL
 2. Add the service-definition.json and task-definition.json for ECR.
-#### `service-definition.json`
-```
-{
-  "serviceName": "nginx-prototype",
-  "taskDefinition": "nginx-prototype",
-  "cluster": "ECS_CLUSTER_NAME",
-  "desiredCount":2,
-  "loadBalancers": [
-     {
-    "containerName": "nginx", 
-    "containerPort": 80, 
-    "targetGroupArn": "TARGET_GROUP_ARN"
-   }
-  ],
-  "role": "ECS_SERVICE_ROLE"
-}
-```
 #### `task-definition.json`
 ```
 {
@@ -61,5 +44,22 @@ Replace the `https://github.com/***********.git` from the buildspec.yml with cur
             ]
         }
     ]
+}
+```
+#### `service-definition.json`
+```
+{
+  "serviceName": "nginx-prototype",
+  "taskDefinition": "nginx-prototype",
+  "cluster": "ECS_CLUSTER_NAME",
+  "desiredCount":2,
+  "loadBalancers": [
+     {
+    "containerName": "nginx", 
+    "containerPort": 80, 
+    "targetGroupArn": "TARGET_GROUP_ARN"
+   }
+  ],
+  "role": "ECS_SERVICE_ROLE"
 }
 ```
