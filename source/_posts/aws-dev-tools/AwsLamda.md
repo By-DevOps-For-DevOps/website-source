@@ -1,3 +1,8 @@
+---
+title: AWS Lamda for Task definition updation
+date: 2016-12-21 14:45:38
+tags: AWS Developer tools
+---
 #### Follow these steps to create two lamda functions.
 
 1. Update Task Definition 
