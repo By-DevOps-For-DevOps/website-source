@@ -1,3 +1,8 @@
+---
+title: CI/DC pipline for ECS with AWS Developer tools
+date: 2016-12-21 14:45:38
+tags: AWS Developer tools
+---
 ### CI/DC pipline for ECS with AWS Developer tools
 We can use the AWS developer tools to Automate the app deployment to ECS clustor. This can help us to achieve a serveless architecture 
 compared to the usual Jenkins automations.
