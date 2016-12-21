@@ -17,87 +17,10 @@ The docker images to be deployed to ECS Cluster are stored in the ECR repository
 each of the custom application that we are hosting on ECS. You can follow these [steps](./ECR.md) to create a new ECR Repository.
 ### AWS CodeBuild
 We build the docker image and push to the ECR with the latest tag using AWS Codebuild. You can follow [these](./AwsCodebuild.md) steps to create CodeBuild
-The `buildspec.yml` guides the 
-CodeBuild on the actions that it has to perform. A sample spec file is shown below.
-```
-version: 0.1
-
-phases:
-  build:
-    commands:
-      - docker build -t $ECR_REPO:latest .
-      - sed -i "s@DOCKER_URI@${ECR_REPO}:latest@g" task-definition.json
-      - sed -i "s@ECS_CLUSTER_NAME@${ECS_CLUSTER_NAME}@g" service-definition.json
-      - sed -i "s@LOADBALANCER_NAME@${LOADBALANCER_NAME}@g" service-definition.json
-  post_build:
-    commands:
-      - $(aws ecr get-login --region $AWS_REGION)
-      - docker push $ECR_REPO:latest
-artifacts:
-  files:
-    - task-definition.json
-    - service-definition.json
-```
-The variables in the commands can be replaced by using Environment Variables in the CodeBuild.
-
-##### Task Definition
-
-```
-{
-    "family": "nginx-prototype",
-    "containerDefinitions": [
-        {
-            "environment": [],
-            "name": "nginx",
-            "image": "DOCKER_URI",
-            "cpu": 10,
-            "memory": 500,
-            "portMappings": [
-                {
-                    "containerPort": 80,
-                    "hostPort": 80
-                }
-            ]
-        }
-    ]
-}
-```
-
-##### Service Definition
-
-```
-{
-  "serviceName": "nginx-prototype",
-  "taskDefinition": "nginx-prototype",
-  "cluster": "ECS_CLUSTER_NAME",
-  "desiredCount":2,
-  "loadBalancers": [
-     {
-    "containerName": "nginx-prototype", 
-    "containerPort": 80, 
-    "loadBalancerName": "LOADBALANCER_NAME"
-   }
-  ],
-  "role": "ECS_SERVICE_ROLE",
-}
-```
-The Variable mapping are as shown below.
-
-- ECR_REPO : ECR repo URI.
-- ECS_CLUSTER_NAME : ECS Cluster name.
-- LOADBALANCER_NAME : The loadbalancer name for the application. 
-- ECS_SERVICE_ROLE : The role should be attached to the loadbalancer.
-
-The Output of the CodeBuild will be as given below: 
-
-1. Build Docker images
-2. Push AWS ECR
-3. Modify Task Definition.
-4. Modify Service Definition.
 
 ### AWS Lambda
 
-The AWS Lambda can be used as a part of our pipeline for updating task and service definition.
+The AWS Lambda can be used as a part of our pipeline for updating task and service definition. You can follow [these](./lamda.md)
 
 1. Update Task Definition 
 
@@ -109,11 +32,6 @@ exports.handler = (event, context, callback) => {
     var AWS = require('aws-sdk');
     
     var fs = require('fs');
-    var ecs = new AWS.ECS();
-    var s3 = new AWS.S3({
-        maxRetries: 10,
-        signatureVersion: "v4"
-    });
     var codepipeline = new AWS.CodePipeline();
     //Child process
     const exec = require('child_process').exec;
@@ -124,15 +42,21 @@ exports.handler = (event, context, callback) => {
     };
     //Getting pipeline ID
     var jobId = event["CodePipeline.job"].id;
+    AWS.config.update({region: 'ap-southeast-1'});
+    var ecs = new AWS.ECS();
+    var s3 = new AWS.S3({
+        maxRetries: 10,
+        signatureVersion: "v4"
+    });
     const unzipCommand = "rm -rf /tmp/artifacts && mkdir -p /tmp/artifacts && unzip /tmp/artifact.zip -d /tmp/artifacts"
     // Notify AWS CodePipeline of a successful job
-    AWS.config.update({region: 'ap-southeast-1'});
     var putJobSuccess = function(message) {
         console.log("Success" + message);
         var params = {
             jobId: jobId
         };
         console.log(params)
+        AWS.config.update({region: 'us-east-1'});
         codepipeline.putJobSuccessResult(params, function(err, data) {
             if(err) {
                 console.log("Unable to update pipeline" + err);
@@ -146,6 +70,7 @@ exports.handler = (event, context, callback) => {
     // Notify AWS CodePipeline of a failed job
     var putJobFailure = function(message) {
         console.log("Failure" + message);
+        AWS.config.update({region: 'us-east-1'});
         var params = {
             jobId: jobId,
             failureDetails: {
@@ -154,6 +79,7 @@ exports.handler = (event, context, callback) => {
                 externalExecutionId: context.invokeid
             }
         };
+        AWS.config.update({region: 'us-east-1'});
         codepipeline.putJobFailureResult(params, function(err, data) {
             context.fail(message);      
         });
@@ -184,6 +110,7 @@ exports.handler = (event, context, callback) => {
 
     });
 };
+
 ```
 This lamda function will create a new task definition or a new revision of the existing task definition.
 
@@ -220,6 +147,7 @@ exports.handler = (event, context, callback) => {
     // Notify AWS CodePipeline of a successful job
     var putJobSuccess = function(message) {
         console.log("Success" + message);
+        AWS.config.update({region: 'us-east-1'});
         var params = {
             jobId: jobId
         };
@@ -243,6 +171,7 @@ exports.handler = (event, context, callback) => {
                 externalExecutionId: context.invokeid
             }
         };
+        AWS.config.update({region: 'us-east-1'});
         codepipeline.putJobFailureResult(params, function(err, data) {
             context.fail(message);      
         });
@@ -259,9 +188,21 @@ exports.handler = (event, context, callback) => {
                     var taskDefinition = require('/tmp/artifacts/task-definition.json');
                     var serviceDefinition = require('/tmp/artifacts/service-definition.json');
                     console.log(serviceDefinition);
-                    ecs.createService(serviceDefinition, function(err, data) {
-                        if (err) putJobFailure(err);
-                        else putJobSuccess("Successfully launched the service");
+                    var params = {
+                        desiredCount: 2, 
+                        service: serviceDefinition.serviceName,
+                        cluster: serviceDefinition.cluster,
+                    };
+                    ecs.updateService(params, function(err, data) {
+                        if (err) {
+                            console.log(err);
+                            console.log(params);
+                            ecs.createService(serviceDefinition, function(err, data) {
+                                if (err) putJobFailure(err);
+                                else putJobSuccess("Successfully launched the service");
+                            });
+                            
+                        } else putJobSuccess("Successfully launched the service");
                     });
                     callback(null, 'Process complete!');
                 });
@@ -273,6 +214,7 @@ exports.handler = (event, context, callback) => {
 
     });
 };
+
 
 ```
 
