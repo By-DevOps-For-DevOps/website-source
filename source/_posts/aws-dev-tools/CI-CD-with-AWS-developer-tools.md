@@ -19,13 +19,13 @@ compared to the usual Jenkins automations.
 We can use the cloudformation template https://github.com/microservices-today/IaC-ecs to create an ECS cluster.
 ### AWS ECR
 The docker images to be deployed to ECS Cluster are stored in the ECR repository. We need to create a repository for 
-each of the custom application that we are hosting on ECS. You can follow these [steps](./ECR) to create a new ECR Repository.
+each of the custom application that we are hosting on ECS. You can follow these [steps](../ECR) to create a new ECR Repository.
 ### AWS CodeBuild
-We build the docker image and push to the ECR with the latest tag using AWS Codebuild. You can follow [these](./AwsCodebuild) steps to create CodeBuild
+We build the docker image and push to the ECR with the latest tag using AWS Codebuild. You can follow [these](../AwsCodebuild) steps to create CodeBuild
 
 ### AWS Lambda
 
-The AWS Lambda can be used as a part of our pipeline for updating task and service definition. You can follow [these](./Awslamda)
+The AWS Lambda can be used as a part of our pipeline for updating task and service definition. You can follow [these](../Awslamda)
 
 ### AWS CodePipeline
-The components are added to the CodePipeline in to complete the CI/CD pipeline. You can follow [these](./AwsCodepipeline) steps to create Codepipeline.
+The components are added to the CodePipeline in to complete the CI/CD pipeline. You can follow [these](../AwsCodepipeline) steps to create Codepipeline.
