@@ -1,3 +1,8 @@
+---
+title: AWS CodeBuild
+date: 2016-12-21 14:45:38
+tags: AWS Developer tools
+---
 #### The following steps can be used to prepare the Github to be added to the codebuild.
 
 1. The codebuild looks for `buildspec.yml` in root of the repository. It contains the actions that are to be performed by the   Codebuild. We can add `buildspec.yml` to the github repository.
