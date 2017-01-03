@@ -4,7 +4,7 @@
 
 ###### Steps to setup `HEXO` 
 1. ```npm install hexo-cli -g```
-2. Inside the `static-web-generator` use ``` npm install ```.
+2. ``` npm install ```.
 
 ###### Steps to add a new post `HEXO` 
 1. ``` hexo new post <title> ```. or you can create an md file manually in  ```source/_posts``` folder
