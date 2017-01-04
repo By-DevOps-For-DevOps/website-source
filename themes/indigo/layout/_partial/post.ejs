@@ -12,7 +12,9 @@
         <%- partial('post/github') %>
 
         <div class="post-content" id="post-content" itemprop="postContent">
-            <%- post.content %>
+            <%- post.content.replace(/(href="([a-zA-Z-\.\/]+)\.md")/g, function(match, $1, $2){
+                return 'href="../' + $2 + '/"'
+            }) %>
         </div>
         
 

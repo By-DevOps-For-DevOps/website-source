@@ -21,7 +21,7 @@ The different modules that are installed and managed using this IaC are:
 
 ### NGP Infrastructure Design
 
-![NGP Infrastructure Design](/images/NGP_Architecture.png)
+![NGP Infrastructure Design](../../images/NGP_Architecture.png)
 
 ### Implementing Next Gen Platform
 
@@ -102,7 +102,7 @@ Running the Next Generation Platform will give you the OpenVPN connect URL and A
   a. Browse to https://OpenVPN_URL/ or https://OpenVPN_Public_IP
   b. Give the openvpn admin credentials
   c. Download the client.ovpn file by clicking Yourself(user-locked profile)
-     ![OpenVPN Connect](/images/openVPN.png)
+     ![OpenVPN Connect](../../images/openVPN.png)
   d. Run the OpenVPN client with the downloaded client config file 
      ```
      openvpn --config client.ovpn
@@ -120,7 +120,7 @@ DC/OS is a distributed operating system based on Apache Mesos. It enables the ma
 The documentation for DC/OS can be found at DC/OS. Steps to set up a DC/OS cluster in AWS Cloud using terraform can be found at IaC-DC/OS.
 After running the IaC for Next Generation Platform, you can launch the DC/OS web interface by entering the DC/OS Url (Given as output for IaC).
 
-![DC/OS Web Interface](/images/DCOS.png)
+![DC/OS Web Interface](../../images/DCOS.png)
 
 ### Tyk API Gateway
 
@@ -134,8 +134,8 @@ The git repo for setting Tyk on DC/OS using terraform is available at [IaC-api-g
 
 - Tyk dashboard is accessible at http://admin.cloud.tyk.io/ 
 - Provide the credentials that were configured while running NGP
-![Tyk API Gateway Dashboard](/images/Tyk-API-Gateway.png)
-![Tyk Registered API](/images/Tyk-API.png)
+![Tyk API Gateway Dashboard](../../images/Tyk-API-Gateway.png)
+![Tyk Registered API](../../images/Tyk-API.png)
 
 ### Docker Private Registry
 
@@ -162,13 +162,13 @@ Filebeat is a lightweight, open source shipper for log file data. Filebeat tails
 [Filebeat-Docker][filebeat-docker] IaC creates a filebeat docker image. This docker image is configured to monitor `mesos` and `marathon app` logs. It allows to pass the logstash uri as an environment variable to the docker.
 AWS provides a kibana interface for elasticsearch module. For accessing the elasticsearch or kibana though browser you have to update the your system IP address to the elasticsearch access policy as shown below:
 
- ![Modify Access Policy](/images/ELK-Access-Policy.png)
+ ![Modify Access Policy](../../images/ELK-Access-Policy.png)
  
  Kibana dashboard URL is available within AWS Elasticsearch Service as shown below:
- ![Kibana URL](/images/ELK-Kibana-URL.png)
+ ![Kibana URL](../../images/ELK-Kibana-URL.png)
  
  Accessing the Kibana URL will give you a dashboard as shown below:
- ![Kibana Dashboard](/images/Kibana-dashboard.png)
+ ![Kibana Dashboard](../../images/Kibana-dashboard.png)
  
 ### Marathon Snapshot
 
