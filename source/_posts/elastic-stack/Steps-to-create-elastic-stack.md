@@ -15,7 +15,7 @@ categories: elstic-stack
 2. Create a new stack by using one of the following options:
  - Click **Create Stack**. This is the only option if you have a currently running stack.
 
-![image](../../console-create-stack-button.png)
+![image](../../images/elastic-stack/console-create-stack-button.png)
  - Click **Create New Stack** in the CloudFormation Stacks main window. This option is visible only if you have no running stacks.
 
 ![image](http://blog.microservices.today/images/elastic-stack/console-create-stack-button1.png)
