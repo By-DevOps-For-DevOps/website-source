@@ -22,7 +22,7 @@ Creating alerts for marathon and marathon app failure
 11. Click Create button.
 
 
-![Creating alerts for marathon failure](/images/sysdig/Creating-alerts-for-marathon-failure.png)
+![Creating alerts for marathon failure](../../images/sysdig/Creating-alerts-for-marathon-failure.png)
 
 While grouping with `mesos.framework.name` on sysdig, it lists marathon from work running on one of the masters ( marathon [<ip>:8080] ). But the ip showing in the list might change when marathon is restarted. In that case we need to create alert for new listing name also. For solving this issue, we need to create alert for each of the master nodes. 
 In order to do that:
@@ -31,7 +31,7 @@ In order to do that:
 - Specify the ip of another master and create a new alert. 
 - Similarly create alert for each of the master nodes.
 
-![Set the scope of nodes to watch](/images/sysdig/Creating-alerts-for-marathon-failure2.png)
+![Set the scope of nodes to watch](../../images/sysdig/Creating-alerts-for-marathon-failure2.png)
 
 
 ### Creating alerts for marathon app failure
@@ -51,6 +51,6 @@ In order to do that:
 11. Enable automatic sysdig capture if necessary.
 12. Click Create button.
 
-![Creating alerts for marathon app failure](/images/sysdig/Creating-alerts-for-marathon-app-failure.png)
+![Creating alerts for marathon app failure](../../images/sysdig/Creating-alerts-for-marathon-app-failure.png)
 
 

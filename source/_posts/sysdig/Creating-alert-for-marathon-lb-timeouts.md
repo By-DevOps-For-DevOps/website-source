@@ -25,7 +25,7 @@ Enable automatic sysdig capture if necessary.
 Click Create button.
 
 
-![sysdig snapshot](/images/marathon-lb-timeouts.png)
+![sysdig snapshot](../../images/marathon-lb-timeouts.png)
 
 
 

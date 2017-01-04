@@ -22,7 +22,7 @@ Disk utilization monitoring using Sysdig
 4. Change the color coding by clicking on the gear icon of each of the columns. (default is yellow after 50% and red after 80%)
 5. Pin the tab to the dashboard.
 
-![creating a dashboard tab](/images/sysdig/Disk-utilization-monitoring-using-Sysdig-dashboard-tab.png)
+![creating a dashboard tab](../../images/sysdig/Disk-utilization-monitoring-using-Sysdig-dashboard-tab.png)
 
 
 ### Creating an alert for 60% disk utilization
@@ -34,9 +34,9 @@ The following steps will help you to create an alert when the root directory (/)
 3. Under `Set the condition` choose type as `manual`
 4. For `Alert when` option Choose `fs.used.percent` as the metric > 60% as the threshold value.
 5. For `Segment by` choose second option, select `Any of` and `fs.mountDir` metric.
-![creating an alert for disk utilization](/images/sysdig/Creating-alert-for-disk-utilization.png)
+![creating an alert for disk utilization](../../images/sysdig/Creating-alert-for-disk-utilization.png)
 6. Check the `Where` option and select `fs.mountDir` from the dropdown. Assign the value `/`
-![creating an alert for disk](/images/sysdig/Creating-alert-for-disk-utilization2.png)
+![creating an alert for disk](../../images/sysdig/Creating-alert-for-disk-utilization2.png)
 7. Choose the minimum monitor value as `1 min`.
 8. Specify the Name, Description and Severity of the alert.
 9. Enable the notification channel.

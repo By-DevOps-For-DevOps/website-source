@@ -7,24 +7,24 @@ git: https://github.com/microservices-today/website-source
 This post explains AWS CloudFormation concepts. 
 AWS CloudFormation provides an easy way to create and manage a collection of AWS resources. This allows us to version control our AWS infrastructure. You only pay for the resources you create.
 
-![CloudFormation Components](/images/cloudformation/CloudFormation_Components.png)
+![CloudFormation Components](../../images/cloudformation/CloudFormation_Components.png)
 
 ### CloudFormation Template
 
 We use CloudFormation Templates to create service or application architectures and have CloudFormation use those templates for quick and reliable provisioning of the services or applications.
 These are formatted text files in JSON or YAML. These templates describe the resources that you want to provision in your AWS CloudFormation stacks. 
 
-![Parameters](/images/cloudformation/Template1.png)
-![Resources](/images/cloudformation/Template2.png)
-![Outputs](/images/cloudformation/Template3.png)
-![Template YAML](/images/cloudformation/Template_YAML.png)
+![Parameters](../../images/cloudformation/Template1.png)
+![Resources](../../images/cloudformation/Template2.png)
+![Outputs](../../images/cloudformation/Template3.png)
+![Template YAML](../../images/cloudformation/Template_YAML.png)
 
 ### AWS CloudFromation Designer
 
 AWS CloudFormation Designer is a graphic tool for creating, viewing, and modifying AWS CloudFormation templates.
 
 The following figure illustrates the Designer panes and its main components.
-![Designer Panes](/images/cloudformation/Designer.png)
+![Designer Panes](../../images/cloudformation/Designer.png)
 
  a. Canvas Pane: Displays template resources as diagram.
  b. Resource types pane: Lists all of the template resources that you can add to your template.

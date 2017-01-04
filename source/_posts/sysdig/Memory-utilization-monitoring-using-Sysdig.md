@@ -25,4 +25,4 @@ The following steps will help you to create an alert when a node exceeds 90% of 
 9. Enable the notification channel.
 10. Enable automatic sysdig capture if necessary.
 11. Click Create button.
-![creating an alert for CPU utilization](/images/sysdig/Memory-utilization-monitoring-using-Sysdig.png)
+![creating an alert for CPU utilization](../../images/sysdig/Memory-utilization-monitoring-using-Sysdig.png)
