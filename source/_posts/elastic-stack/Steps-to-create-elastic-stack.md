@@ -37,3 +37,5 @@ categories: elstic-stack
 
 ![image](../../images/elastic-stack/creation-completed.png)
 [iac-ngp-elastic]: <https://github.com/microservices-today/IaC-ngp-elastic>
+
+Please refer the [blog]() For verifying  elastic stack creation.

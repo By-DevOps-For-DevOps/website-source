@@ -11,8 +11,9 @@ page.slug = 'hexo-page-' + page.path.replace(/\/index\.html$/,'').split('/').joi
         <div class="post-content page-content" id="page-content" itemprop="pageContent">
             <%- page.content.replace(/<p>}<\/p>/g, '</div>')
                 .replace(/<p>@([\w-]+){<\/p>/g, function(match, $1){
-                return '<div class="'+ $1 +'">'
-            }) %>
+                    return '<div class="'+ $1 +'">'
+                })
+            %>
         </div>
 
         <% if(theme.about){ %>
