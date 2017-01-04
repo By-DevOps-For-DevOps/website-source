@@ -12,11 +12,11 @@ categories: elstic-stack
  - you can find the ALB DNSName form stack output list
  - also you can find the ALB DNSName form Load Balancers list in AWS console.
 
-![image](/images/elastic-stack/verify-kibana.png)
+![image](http://blog.microservices.today/images/elastic-stack/verify-kibana.png)
 
 2. The link will open up kibana interface.
 
-![image](/images/elastic-stack/kibana.png)
+![image](http://blog.microservices.today/images/elastic-stack/kibana.png)
 
 ##### 2. Create a Management instance in public subnet
 1. Bring up a CentOs instance in our public subnet inorder to access ELK instances.
