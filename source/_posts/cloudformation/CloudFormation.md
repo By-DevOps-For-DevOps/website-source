@@ -1,8 +1,7 @@
 ---
-title: The Next Generation Platform
-date: 2016-07-21 14:45:56
-banner: /images/iac-dcos.jpg
-git: https://github.com/microservices-today/IaC-platform
+title: CloudFormation
+date: 2017-01-03 14:45:56
+git: https://github.com/microservices-today/website-source
 ---
 ### Overview
 This post explains AWS CloudFormation concepts. 
@@ -63,22 +62,5 @@ f. Clean Up
 	To delete the stack and its resources, from the AWS CloudFormation console, select the stack and click Delete.
 	In the same way you monitored the creation of the stack, you can monitor its deletion by using the Event tab.
 
-### Stack
-
-final Stack
-Updating the stack.
-
-
-
-
-[terraform]: <https://www.terraform.io/>
-[iac-platform]: <https://github.com/microservices-today/IaC-platform>
-[sysdig]: <http://www.sysdig.org/> 
-[filebeat]: <https://github.com/microservices-today/filebeat-docker>
-[openvpn]: <https://openvpn.net/index.php/access-server/docs/quick-start-guide/495-connecting-to-openvpn-access-server-using-the-connect-client-on-mac.html>
-[iac-api-gateway]: <https://github.com/microservices-today/IaC-api-gateway>
-[iac-dcos-docker-registry]: <https://github.com/microservices-today/IaC-dcos-docker-registry>
-[filebeat-docker]: <https://github.com/microservices-today/filebeat-docker>
-[iac-marathon-snapshot]: <https://github.com/microservices-today/IaC-marathon-snapshots> 
 
 
