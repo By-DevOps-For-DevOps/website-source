@@ -29,7 +29,7 @@ webpage_source: https://github.com/microservices-today/website-source
 #你的头像url
 avatar: /images/logo.jpg
 #favicon
-favicon: /favicon.ico
+favicon: /images/favicon.ico
 
 # email
 email: kamoljan@gmail.com
