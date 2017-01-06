@@ -27,7 +27,7 @@ Following resources will be created:
 - VPC
 - Public and Private Subnets in two availability zones
 - Public and Private security groups
-- Public abd Private Route tables
+- Public and Private Route tables
 - Internet Gateway
 - NAT Gateway
 
