@@ -24,7 +24,7 @@ We build the docker image and push to the ECR with the latest tag using AWS Code
 
 ### AWS Lambda
 
-The AWS Lambda can be used as a part of our pipeline for updating task and service definition. You can follow [these](Awslamda.md)
+The AWS Lambda can be used as a part of our pipeline for updating task and service definition. You can follow [these](AwsLamda.md)
 
 ### AWS CodePipeline
 The components are added to the CodePipeline in to complete the CI/CD pipeline. You can follow [these](AwsCodepipeline.md) steps to create Codepipeline.
