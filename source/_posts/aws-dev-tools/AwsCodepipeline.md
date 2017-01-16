@@ -3,7 +3,12 @@ title: AWS Codepipeline
 date: 2016-12-21 14:45:38
 tags: AWS Developer tools
 ---
-##### These steps can be followed to create Codepipeline.
+
+#### AWS CodePipeline
+
+We have prepared an Infrastructure as code for automating the pipeline creation. The steps can be found [here](https://github.com/microservices-today/IaC-ngp-cicd-aws).
+
+##### These steps can be followed to create Codepipeline manually.
 
 1. Go to https://console.aws.amazon.com/codepipeline/home?#/create/Name
 2. ![image](../../images/aws-dev-tools/codepipeline/code-pipeline-step-1.png)
