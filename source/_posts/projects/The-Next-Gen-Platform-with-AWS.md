@@ -1,7 +1,7 @@
 ---
 title: The Next Generation Platform with AWS
 date: 2017-01-05 11:45:56
-tags:
+tags: Next Generation Platform
 categories: Projects
 Projects: IaC-NGP-AWS
 git: https://github.com/microservices-today/iac-ngp-aws
