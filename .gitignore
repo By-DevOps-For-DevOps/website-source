@@ -43,3 +43,6 @@ public/
 .deploy*/
 .idea/
 db.json
+
+# Security
+.envrc
