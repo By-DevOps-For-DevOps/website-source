@@ -68,4 +68,8 @@ theme: indigo
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: s3
+  bucket: microservices.today
+  region: ap-northeast-1
+  # aws_key: <key>
+  # aws_secret: <secret>

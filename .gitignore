@@ -43,6 +43,7 @@ public/
 .deploy*/
 .idea/
 db.json
+package-lock.json
 
 # Security
 .envrc
